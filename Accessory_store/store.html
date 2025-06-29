@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessory Shop - Quotation System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛍️ Accessory Shop</h1>
+            <p>Professional Quotation System</p>
+        </div>
+
+        <div class="main-content">
+            <div class="add-product-section">
+                <button class="btn" onclick="openModal()">➕ Add New Product</button>
+            </div>
+
+            <div class="table-container">
+                <table id="quotationTable">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Price (THB)</th>
+                            <th>Quantity</th>
+                            <th>Gross Total (THB)</th>
+                            <th>VAT 7% (THB)</th>
+                            <th>Net Total (THB)</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="quotationTableBody">
+                        <tr>
+                            <td colspan="7" class="empty-state">
+                                <h3>No products added yet</h3>
+                                <p>Click "Add New Product" to get started</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="summary" id="summarySection" style="display: none;">
+                <h3>💰 Quotation Summary</h3>
+                <div class="summary-row">
+                    <span>Gross Total:</span>
+                    <span class="price" id="totalGross">฿0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>VAT (7%):</span>
+                    <span class="price" id="totalVAT">฿0.00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Final Total:</span>
+                    <span class="price" id="finalTotal">฿0.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Product</h3>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-group">
+                        <label for="productSelect">Product:</label>
+                        <select id="productSelect" required>
+                            <option value="">Select a product...</option>
+                            <option value="iPhone 15 Pro Max Case|1200">iPhone 15 Pro Max Case - ฿1,200</option>
+                            <option value="Samsung Galaxy S24 Case|900">Samsung Galaxy S24 Case - ฿900</option>
+                            <option value="Wireless Charger|2500">Wireless Charger - ฿2,500</option>
+                            <option value="Power Bank 10000mAh|1800">Power Bank 10000mAh - ฿1,800</option>
+                            <option value="Bluetooth Earbuds|3500">Bluetooth Earbuds - ฿3,500</option>
+                            <option value="Phone Screen Protector|300">Phone Screen Protector - ฿300</option>
+                            <option value="Car Phone Holder|450">Car Phone Holder - ฿450</option>
+                            <option value="USB-C Cable|200">USB-C Cable - ฿200</option>
+                            <option value="Laptop Stand|1500">Laptop Stand - ฿1,500</option>
+                            <option value="Tablet Case|800">Tablet Case - ฿800</option>
+                            <option value="Gaming Mouse|2200">Gaming Mouse - ฿2,200</option>
+                            <option value="Keyboard Cover|650">Keyboard Cover - ฿650</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity">Quantity:</label>
+                        <input type="number" id="quantity" min="1" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
